@@ -31,7 +31,6 @@ enum RankOldAndNew: String, Codable {
     case old = "OLD"
 }
 
-
 // MARK: - JSON 파싱
 struct LoadData {
     func loadData(from bundle: Bundle = .main) -> Movie? {
