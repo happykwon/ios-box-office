@@ -1,8 +1,8 @@
 //
-//  BoxOfficeModel.swift
+//  BoxOfficeMovieData.swift
 //  BoxOffice
 //
-//  Created by yujaehong on 2/13/24.
+//  Created by yujaehong on 2/15/24.
 //
 
 import Foundation

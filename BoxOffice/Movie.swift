@@ -2,14 +2,13 @@
 //  Movie.swift
 //  BoxOffice
 //
-//  Created by yujaehong on 2/14/24.
+//  Created by yujaehong on 2/15/24.
 //
 
 import Foundation
 
 // 내가 만들고 싶은 데이터
-struct Movie {
-    static var movieId: Int = 0
+struct Movie: Decodable {
     let movieName: String
     let rank: Int
     let openDate: String
@@ -22,6 +21,5 @@ struct Movie {
         self.openDate = openDate
         self.todayAudience = Int(audiCnt)!
         self.totalAudience = Int(accAudi)!
-        Movie.movieId += 1
     }
 }
