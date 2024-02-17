@@ -49,27 +49,43 @@ struct Audit: Codable {
 
 // MARK: - Company
 struct Company: Codable {
-    let companyCD, companyNm, companyNmEn, companyPartNm: String
+    let companyCD, companyName, companyNameEnglish, companyPartName: String
 
     enum CodingKeys: String, CodingKey {
         case companyCD = "companyCd"
-        case companyNm, companyNmEn, companyPartNm
+        case companyName = "companyNm"
+        case companyNameEnglish = "companyNmEn"
+        case companyPartName = "companyPartNm"
+        
     }
 }
 
 // MARK: - Director
 struct Director: Codable {
-    let peopleNm, peopleNmEn: String
+    let peopleName, personNameEnglish: String
+    
+    enum CodingKeys: String, CodingKey {
+        case peopleName = "peopleNm"
+        case personNameEnglish = "peopleNmEn"
+    }
 }
 
 // MARK: - Genre
 struct Genre: Codable {
-    let genreNm: String
+    let genreName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case genreName = "genreNm"
+    }
 }
 
 // MARK: - Nation
 struct Nation: Codable {
-    let nationNm: String
+    let nationName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case nationName = "nationNm"
+    }
 }
 
 // MARK: - ShowType

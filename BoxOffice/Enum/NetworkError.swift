@@ -22,7 +22,7 @@ extension NetworkError: LocalizedError {
             return "urlError"
         case .dataLoadingError:
             return "dataloadingError"
-        case .decodingError
+        case .decodingError:
             return "decodingError"
         case .endPointComponetError:
             return "endPointComponetError"
