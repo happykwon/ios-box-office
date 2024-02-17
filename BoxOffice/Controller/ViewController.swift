@@ -8,7 +8,7 @@ class ViewController: UIViewController {
     
     func checkJSONLoader() {
         do {
-            let movie: BoxOffice? = try JSONLoader().loadJSON(from: .main, fileName: "box_office_sample")
+            let movie: BoxOffice? = try JSONLoader().loadJSONFromFile(from: .main, fileName: "box_office_sample")
             dump(movie)
         } catch {
             print(error.localizedDescription)

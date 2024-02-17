@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum ParsingError: Error {
+enum JSONFileError: Error {
     case josonDecoderError (fileName: String)
     case pathError (fileName: String)
     case utf8Error (fileName: String)
 }
 
 
-extension ParsingError: LocalizedError {
+extension JSONFileError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .josonDecoderError(let fileName):
@@ -26,3 +26,6 @@ extension ParsingError: LocalizedError {
         }
     }
 }
+
+
+
