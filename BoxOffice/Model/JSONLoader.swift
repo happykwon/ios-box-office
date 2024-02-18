@@ -12,11 +12,13 @@ struct JSONLoader {
         return  try decoder.decode(T.self, from: data)
     }
     
-    func loadJSONFromURL2<T: Codable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
+    func loadJSONFromURL<T: Codable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.urlError))
             return
         }
+        
+        
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -29,7 +31,11 @@ struct JSONLoader {
                 let decodedData = try decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
             } catch {
-                completion(.failure(NetworkError.decodingError))
+                print("Decoding error: \(error)")
+                completion(.failure(error))
+                print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
+
+//                completion(.failure(NetworkError.decodingError))
             }
         }
         task.resume()

@@ -1,18 +1,17 @@
 
 import Foundation
-
 struct EndPoint {
     var path: String
-    var querryItems: [URLQueryItem] = []
+    var queryItems: [URLQueryItem] = []
 }
 
 extension EndPoint {
     var url: URL {
         var componets = URLComponents()
-        componets.scheme = "http"
+        componets.scheme = "https"
         componets.host = "kobis.or.kr"
         componets.path = "/" + path
-        componets.queryItems = querryItems
+        componets.queryItems = queryItems
         
         guard let url = componets.url else { preconditionFailure("URLError: \(componets)") }
         return url
@@ -20,11 +19,26 @@ extension EndPoint {
 }
 
 extension EndPoint {
-    static var dailyBoxOfficeList: Self {
+    static var boxOffice: Self {
         EndPoint(path: "kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json")
     }
     static var moviInfo: Self {
         EndPoint(path: "kobisopenapi/webservice/rest/movie/searchMovieInfo.json")
     }
+
 }
+
+
+
+extension EndPoint {
+    mutating func getBoxOfficeAPI( targetDate: String) {
+        queryItems.append(URLQueryItem(name: "key", value: "f5eef3421c602c6cb7ea224104795888"))
+        queryItems.append(URLQueryItem(name: "targetDt", value: targetDate))
+    }
+    mutating func getMovieInfoApiKey(_ key: String, movieCode: String) {
+        queryItems.append(URLQueryItem(name: "key", value: key))
+        queryItems.append(URLQueryItem(name: "mociecode", value: movieCode))
+    }
+}
+
 
