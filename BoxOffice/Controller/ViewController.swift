@@ -2,40 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var fetchingData = fetch()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchBoxOffice()
-        fetchMovieInfo()
+        
+        fetchingData.fetchBoxOffice(targetDate: "20240218")
+        fetchingData.fetchMovieInfo(movieCode: "20247076")
     }
 
 
-    func fetchBoxOffice() {
-        var boxOfficeData = EndPoint.boxOffice
-        boxOfficeData.getBoxOfficeAPI(targetDate: "20240214")
-        JSONLoader().loadJSONFromURL(from: boxOfficeData.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
-            switch result {
-            case .success(let boxOfficeResponse):
-                dump(boxOfficeResponse)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func fetchMovieInfo() {
-        var movieInfoData = EndPoint.moviInfo
-        movieInfoData.getDetailMovieInfo(movieCode: "20236180")
-        JSONLoader().loadJSONFromURL(from: movieInfoData.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
-            switch result {
-            case .success(let response):
-                dump(response)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
+
+
 }
 
 
