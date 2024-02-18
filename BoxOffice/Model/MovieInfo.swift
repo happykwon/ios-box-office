@@ -1,9 +1,18 @@
 import Foundation
 
+
+struct MovieInfoResponse: Codable {
+    let movieInfoResult: MovieInfoResult
+}
+
+struct MovieInfoResult: Codable {
+    let movieInfo: MovieInfo
+}
+
 struct MovieInfo: Codable {
-    let movieCD, movieNm, movieNmEn, movieNmOg: String
+    let movieCode, movieName, movieNmEn, movieNmOg: String
     let showTm, prdtYear, openDt, prdtStatNm: String
-    let typeNm: String
+    let typeNm: String?
     let nations: [Nation]
     let genres: [Genre]
     let directors: [Director]
@@ -14,8 +23,9 @@ struct MovieInfo: Codable {
     let staffs: [Staff]
 
     enum CodingKeys: String, CodingKey {
-        case movieCD = "movieCd"
-        case movieNm, movieNmEn, movieNmOg, showTm, prdtYear, openDt, prdtStatNm, typeNm, nations, genres, directors, actors, showTypes, companys, audits, staffs
+        case movieCode = "movieCd"
+        case movieName = "movieNm"
+        case movieNmEn, movieNmOg, showTm, prdtYear, openDt, prdtStatNm, typeNm, nations, genres, directors, actors, showTypes, companys, audits, staffs
     }
 }
 

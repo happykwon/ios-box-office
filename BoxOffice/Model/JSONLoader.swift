@@ -17,25 +17,17 @@ struct JSONLoader {
             completion(.failure(NetworkError.urlError))
             return
         }
-        
-        
-        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(NetworkError.dataLoadingError))
                 return
             }
-            
             let decoder = JSONDecoder()
             do {
                 let decodedData = try decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
             } catch {
-                print("Decoding error: \(error)")
-                completion(.failure(error))
-                print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
-
-//                completion(.failure(NetworkError.decodingError))
+                completion(.failure(NetworkError.decodingError))
             }
         }
         task.resume()

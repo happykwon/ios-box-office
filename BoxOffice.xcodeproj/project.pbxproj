@@ -126,9 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				704CDE052B7CA3E500411D2C /* BoxOffice.swift */,
-				70F182C12B7E015800A73B6C /* JSONLoader.swift */,
 				70B523C52B80AAD100097AD8 /* MovieInfo.swift */,
 				70B523C82B80AC6200097AD8 /* EndPoint.swift */,
+				70F182C12B7E015800A73B6C /* JSONLoader.swift */,
 				704CDDBC2B7C501300411D2C /* box_office_sample.json */,
 			);
 			path = Model;

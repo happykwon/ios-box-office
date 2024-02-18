@@ -5,6 +5,8 @@ struct EndPoint {
     var queryItems: [URLQueryItem] = []
 }
 
+
+
 extension EndPoint {
     var url: URL {
         var componets = URLComponents()
@@ -12,7 +14,6 @@ extension EndPoint {
         componets.host = "kobis.or.kr"
         componets.path = "/" + path
         componets.queryItems = queryItems
-        
         guard let url = componets.url else { preconditionFailure("URLError: \(componets)") }
         return url
     }
@@ -31,13 +32,14 @@ extension EndPoint {
 
 
 extension EndPoint {
-    mutating func getBoxOfficeAPI( targetDate: String) {
+    mutating func getBoxOfficeAPI(targetDate: String) {
         queryItems.append(URLQueryItem(name: "key", value: "f5eef3421c602c6cb7ea224104795888"))
         queryItems.append(URLQueryItem(name: "targetDt", value: targetDate))
     }
-    mutating func getMovieInfoApiKey(_ key: String, movieCode: String) {
-        queryItems.append(URLQueryItem(name: "key", value: key))
-        queryItems.append(URLQueryItem(name: "mociecode", value: movieCode))
+    mutating func getDetailMovieInfo(movieCode: String) {
+        queryItems.append(URLQueryItem(name: "key", value: "f5eef3421c602c6cb7ea224104795888"))
+        queryItems.append(URLQueryItem(name: "movieCd", value: movieCode))
+
     }
 }
 
