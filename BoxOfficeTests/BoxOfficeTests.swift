@@ -11,7 +11,7 @@ final class BoxOfficeTests: XCTestCase {
     func test제이슨파일에서데이터가져오기성공() {
            let testBundle = Bundle(for: type(of: self))
 
-        guard let movie: BoxOffice = try? sut.loadJSONFromFile(from: testBundle, fileName: "box_office_sample") else {
+        guard let movie: BoxOfficeResponse = try? sut.loadJSONFromFile(from: testBundle, fileName: "box_office_sample") else {
                XCTFail("데이터 로딩 실패")
                return
            }

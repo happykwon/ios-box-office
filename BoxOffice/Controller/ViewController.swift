@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     func fetchBoxOffice() {
         var boxOfficeData = EndPoint.boxOffice
         boxOfficeData.getBoxOfficeAPI(targetDate: "20240214")
-        JSONLoader().loadJSONFromURL(from: boxOfficeData.url.absoluteString) { (result: Result<BoxOffice, Error>) in
+        JSONLoader().loadJSONFromURL(from: boxOfficeData.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
             switch result {
             case .success(let boxOfficeResponse):
                 dump(boxOfficeResponse)
