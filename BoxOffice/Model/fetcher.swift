@@ -1,8 +1,7 @@
 import Foundation
 
 
-struct fetch {
-    
+struct fetcher {
     func fetchMovieInfo(movieCode: String) {
         var movieInfoData = EndPoint.moviInfo
         movieInfoData.getDetailMovieInfo(movieCode: movieCode)
@@ -15,7 +14,6 @@ struct fetch {
             }
         }
     }
-    
     func fetchBoxOffice(targetDate: String) {
         var boxOfficeData = EndPoint.boxOffice
         boxOfficeData.getBoxOfficeAPI(targetDate: targetDate)
@@ -27,6 +25,5 @@ struct fetch {
                 print(error.localizedDescription)
             }
         }
-        
     }
 }

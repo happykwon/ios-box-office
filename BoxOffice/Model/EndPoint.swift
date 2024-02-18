@@ -1,11 +1,9 @@
-
 import Foundation
+
 struct EndPoint {
     var path: String
     var queryItems: [URLQueryItem] = []
 }
-
-
 
 extension EndPoint {
     var url: URL {
