@@ -7,12 +7,12 @@ struct EndPoint {
 
 extension EndPoint {
     var url: URL {
-        var componets = URLComponents()
-        componets.scheme = "https"
-        componets.host = "kobis.or.kr"
-        componets.path = "/" + path
-        componets.queryItems = queryItems
-        guard let url = componets.url else { preconditionFailure("URLError: \(componets)") }
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "kobis.or.kr"
+        components.path = "/" + path
+        components.queryItems = queryItems
+        guard let url = components.url else { preconditionFailure("URLError: \(components)") }
         return url
     }
 }
