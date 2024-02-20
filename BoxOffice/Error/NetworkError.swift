@@ -5,7 +5,6 @@ enum NetworkError: Error {
     case dataLoadingError
     case decodingError
     case endPointComponetError
-    
 }
 
 extension NetworkError: LocalizedError {
