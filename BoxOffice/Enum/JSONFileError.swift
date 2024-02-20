@@ -13,7 +13,6 @@ enum JSONFileError: Error {
     case utf8Error (fileName: String)
 }
 
-
 extension JSONFileError: LocalizedError {
     var errorDescription: String? {
         switch self {

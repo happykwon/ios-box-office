@@ -2,27 +2,27 @@ import Foundation
 
 
 struct MovieInfoResponse: Codable {
-    let movieInfoResult: MovieInfoResult
+    private let movieInfoResult: MovieInfoResult
 }
 
 struct MovieInfoResult: Codable {
-    let movieInfo: MovieInfo
+    private let movieInfo: MovieInfo
 }
 
 struct MovieInfo: Codable {
-    let movieCode, movieName, movieNameEnglish, movieNmOg: String
-    let showTm, prdtYear, openDt, prdtStatNm: String
-    let typeName: String
-    let nations: [Nation]
-    let genres: [Genre]
-    let directors: [Director]
-    let actors: [Actor]
-    let showTypes: [ShowType]
-    let companys: [Company]
-    let audits: [Audit]
-    let staffs: [Staff]
+    private let movieCode, movieName, movieNameEnglish, movieNmOg: String
+    private let showTm, prdtYear, openDt, prdtStatNm: String
+    private let typeName: String
+    private let nations: [Nation]
+    private let genres: [Genre]
+    private let directors: [Director]
+    private let actors: [Actor]
+    private let showTypes: [ShowType]
+    private let companys: [Company]
+    private let audits: [Audit]
+    private let staffs: [Staff]
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case movieCode = "movieCd"
         case movieName = "movieNm"
         case movieNameEnglish = "movieNmEn"
@@ -33,7 +33,14 @@ struct MovieInfo: Codable {
 
 // MARK: - Actor
 struct Actor: Codable {
-    let peopleNm, peopleNmEn, cast, castEn: String
+    private let peopleName, peopleNameEnglish, cast, castEnglish: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case peopleName = "peopleNm"
+        case peopleNameEnglish = "peopleNmEn"
+        case castEnglish = "caseEN"
+        case cast
+    }
 }
 
 // MARK: - Audit
@@ -84,10 +91,20 @@ struct Nation: Codable {
 
 // MARK: - ShowType
 struct ShowType: Codable {
-    let showTypeGroupNm, showTypeNm: String
+    let showTypeGroupName, showTypeName: String
+    enum CodingKeys: String, CodingKey {
+        case showTypeGroupName = "showTypeGroupNm"
+        case showTypeName = "showTypeNm"
+    }
 }
 
 // MARK: - Staff
 struct Staff: Codable {
-    let peopleNm, peopleNmEn, staffRoleNm: String
+    let peopleName, peopleNameEnglish, staffRoleName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case peopleName = "peopleNm"
+        case peopleNameEnglish = "peopleNmEn"
+        case staffRoleName = "staffRoleNm"
+    }
 }

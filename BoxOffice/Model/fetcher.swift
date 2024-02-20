@@ -3,7 +3,7 @@ import Foundation
 
 struct fetcher {
     func fetchMovieInfo(movieCode: String) {
-        var movieInfoData = EndPoint.moviInfo
+        var movieInfoData = EndPoint.moviInfoPath
         movieInfoData.getDetailMovieInfo(movieCode: movieCode)
         JSONLoader().loadJSONFromURL(from: movieInfoData.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
             switch result {
@@ -15,7 +15,7 @@ struct fetcher {
         }
     }
     func fetchBoxOffice(targetDate: String) {
-        var boxOfficeData = EndPoint.boxOffice
+        var boxOfficeData = EndPoint.boxOfficePath
         boxOfficeData.getBoxOfficeAPI(targetDate: targetDate)
         JSONLoader().loadJSONFromURL(from: boxOfficeData.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
             switch result {

@@ -1,8 +1,7 @@
 import Foundation
 
 struct JSONLoader {
-    
-    func loadJSONFromFile<T: Codable>(from bundle: Bundle, fileName: String, ofType fileType: String = "json") throws -> T {
+     func loadJSONFromFile<T: Codable>(from bundle: Bundle, fileName: String, ofType fileType: String = "json") throws -> T {
         guard let path = bundle.path(forResource: fileName, ofType: fileType),
               let jsonString = try? String(contentsOfFile: path) else {
             throw JSONFileError.pathError(fileName: fileName)
@@ -12,7 +11,7 @@ struct JSONLoader {
         return  try decoder.decode(T.self, from: data)
     }
     
-    func loadJSONFromURL<T: Codable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
+     func loadJSONFromURL<T: Codable>(from urlString: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.urlError))
             return

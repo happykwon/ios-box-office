@@ -11,7 +11,6 @@ struct BoxOfficeResult: Codable {
     let dailyBoxOfficeList: [DailyBoxOfficeList]
 }
 
-
 struct DailyBoxOfficeList: Codable {
     private let rnum, rank, rankInten: String
     private let rankOldAndNew: RankOldAndNew
