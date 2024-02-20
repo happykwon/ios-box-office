@@ -1,8 +1,8 @@
 import Foundation
 
 
-struct fetcher {
-    func fetchMovieInfo(movieCode: String) {
+struct Fetcher {
+    private func fetchMovieInfo(movieCode: String) {
         var movieInfoData = EndPoint.moviInfoPath
         movieInfoData.getDetailMovieInfo(movieCode: movieCode)
         JSONLoader().loadJSONFromURL(from: movieInfoData.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
