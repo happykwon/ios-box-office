@@ -7,9 +7,8 @@
 
 import Foundation
 
-// 서버에서 주는 데이터 형식
 // MARK: - BoxOfficeModel
-struct MovieData: Codable {
+struct DailyBoxOfficeListData: Codable {
     let boxOfficeResult: BoxOfficeResult
 }
 
