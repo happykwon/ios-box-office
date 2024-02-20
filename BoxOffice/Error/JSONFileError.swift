@@ -1,10 +1,3 @@
-//
-//  ParsingError.swift
-//  BoxOffice
-//
-//  Created by 권태호 on 15/02/2024.
-//
-
 import Foundation
 
 enum JSONFileError: Error {

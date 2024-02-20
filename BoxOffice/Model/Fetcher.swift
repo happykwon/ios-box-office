@@ -1,4 +1,5 @@
 import Foundation
+
 struct Fetcher {
      func fetchMovieInfo(movieCode: String) {
         var movieInfoData = EndPoint.moviInfoPath

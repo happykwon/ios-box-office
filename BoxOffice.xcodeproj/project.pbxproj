@@ -95,9 +95,9 @@
 		63DF20ED2970E1A0005DF7D1 /* BoxOffice */ = {
 			isa = PBXGroup;
 			children = (
+				703BEFF72B8498AD00F1DD40 /* View */,
 				70CA1D782B84877F006B9D84 /* Controller */,
 				70CA1D7B2B8487A9006B9D84 /* Error */,
-				70CA1D7A2B84878B006B9D84 /* View */,
 				70CA1D792B848786006B9D84 /* Model */,
 				63DF20FC2970E1A1005DF7D1 /* Info.plist */,
 				63DF20F02970E1A0005DF7D1 /* SceneDelegate.swift */,
@@ -107,6 +107,13 @@
 				63DF20F92970E1A1005DF7D1 /* LaunchScreen.storyboard */,
 			);
 			path = BoxOffice;
+			sourceTree = "<group>";
+		};
+		703BEFF72B8498AD00F1DD40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		704CDE0C2B7CA7FF00411D2C /* BoxOfficeTests */ = {
@@ -136,13 +143,6 @@
 				704CDDBC2B7C501300411D2C /* box_office_sample.json */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		70CA1D7A2B84878B006B9D84 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		70CA1D7B2B8487A9006B9D84 /* Error */ = {
