@@ -1,10 +1,8 @@
 import Foundation
-
-
 struct Fetcher {
-    private func fetchMovieInfo(movieCode: String) {
+     func fetchMovieInfo(movieCode: String) {
         var movieInfoData = EndPoint.moviInfoPath
-        movieInfoData.getDetailMovieInfo(movieCode: movieCode)
+        movieInfoData.getDetailMovieInfoQueryItems(movieCode: movieCode)
         JSONLoader().loadJSONFromURL(from: movieInfoData.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
             switch result {
             case .success(let response):
@@ -14,9 +12,10 @@ struct Fetcher {
             }
         }
     }
-    func fetchBoxOffice(targetDate: String) {
+    
+     func fetchBoxOffice(targetDate: String) {
         var boxOfficeData = EndPoint.boxOfficePath
-        boxOfficeData.getBoxOfficeAPI(targetDate: targetDate)
+        boxOfficeData.getBoxOfficeQueryItems(targetDate: targetDate)
         JSONLoader().loadJSONFromURL(from: boxOfficeData.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
             switch result {
             case .success(let boxOfficeResponse):

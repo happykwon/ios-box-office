@@ -1,10 +1,8 @@
 import Foundation
 
-
 struct BoxOfficeResponse: Codable {
     let boxOfficeResult: BoxOfficeResult
 }
-
 
 struct BoxOfficeResult: Codable {
     private let boxofficeType, showRange: String
