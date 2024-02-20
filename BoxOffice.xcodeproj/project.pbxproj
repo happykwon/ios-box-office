@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D78A0762B84835000889106 /* MovieInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78A0752B84835000889106 /* MovieInfoResponse.swift */; };
 		63DF20EF2970E1A0005DF7D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DF20EE2970E1A0005DF7D1 /* AppDelegate.swift */; };
 		63DF20F12970E1A0005DF7D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DF20F02970E1A0005DF7D1 /* SceneDelegate.swift */; };
 		63DF20F32970E1A0005DF7D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DF20F22970E1A0005DF7D1 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D78A0752B84835000889106 /* MovieInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoResponse.swift; sourceTree = "<group>"; };
 		63DF20EB2970E1A0005DF7D1 /* BoxOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63DF20EE2970E1A0005DF7D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63DF20F02970E1A0005DF7D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				63DF20F02970E1A0005DF7D1 /* SceneDelegate.swift */,
 				63DF20F22970E1A0005DF7D1 /* ViewController.swift */,
 				704CDE052B7CA3E500411D2C /* MovieData.swift */,
+				1D78A0752B84835000889106 /* MovieInfoResponse.swift */,
 				70F182BF2B7E012A00A73B6C /* ParsingError.swift */,
 				70F182C12B7E015800A73B6C /* JSONLoader.swift */,
 				70CA1D742B84823D006B9D84 /* EndPoint.swift */,
@@ -221,6 +224,7 @@
 				63DF20F32970E1A0005DF7D1 /* ViewController.swift in Sources */,
 				63DF20EF2970E1A0005DF7D1 /* AppDelegate.swift in Sources */,
 				70F182C22B7E015800A73B6C /* JSONLoader.swift in Sources */,
+				1D78A0762B84835000889106 /* MovieInfoResponse.swift in Sources */,
 				70CA1D752B84823D006B9D84 /* EndPoint.swift in Sources */,
 				63DF20F12970E1A0005DF7D1 /* SceneDelegate.swift in Sources */,
 			);
