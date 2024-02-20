@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct BoxOffice: Codable {
+struct BoxOfficeResponse: Codable {
     let boxOfficeResult: BoxOfficeResult
 }
 
