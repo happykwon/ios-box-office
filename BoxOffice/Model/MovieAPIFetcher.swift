@@ -1,7 +1,7 @@
 import Foundation
 
 struct MovieAPIFetcher {
-    let networkManager: NetworkManagerProtocol
+     let networkManager: NetworkManagerProtocol
     
     init(networkManager: NetworkManagerProtocol = NetworkManager()) {
         self.networkManager = networkManager
@@ -10,7 +10,7 @@ struct MovieAPIFetcher {
     func fetchDetailMovieInfo(movieCode: String) {
         var movieInfoRequestURL = EndPoint.moviInfoPath
         movieInfoRequestURL.addDetailMovieInfoQueryItems(movieCode: movieCode)
-        networkManager.fetchDetails(from: movieInfoRequestURL.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
+        networkManager.fetch(from: movieInfoRequestURL.url.absoluteString) { (result: Result<MovieInfoResponse, Error>) in
             switch result {
             case .success(let response):
                 dump(response)
@@ -20,10 +20,10 @@ struct MovieAPIFetcher {
         }
     }
     
-    private func convertToMyDailyBoxOfficeList(from response: BoxOfficeResponse, targetDate: String) -> [MyDailyBoxOfficeList] {
-        return response.dailyBoxOffice.dailyBoxOfficeInfo.map { info -> MyDailyBoxOfficeList in
+    private func convertToMyDailyBoxOfficeList(from response: BoxOfficeResponse, targetDate: String) -> [CustomDailyBoxOffice] {
+        return response.dailyBoxOffice.dailyBoxOfficeInfo.map { info -> CustomDailyBoxOffice in
             let rankOldAndNew = RankOldAndNew(rawValue: info.rankOldAndNew.rawValue) ?? .new
-            return MyDailyBoxOfficeList(
+            return CustomDailyBoxOffice(
                 movieNm: info.movieName,
                 rank: info.rank,
                 audiCnt: info.todayAudienceCount,
@@ -35,11 +35,11 @@ struct MovieAPIFetcher {
         }
     }
     
-    func fetchBoxOffice(completion: @escaping (Result<[MyDailyBoxOfficeList], Error>) -> Void) {
+    func fetchBoxOffice(completion: @escaping (Result<[CustomDailyBoxOffice], Error>) -> Void) {
         let defaultDate = Date.formattedString(for: .yesterday)
         var boxOfficeRequestURL = EndPoint.boxOfficePath
         boxOfficeRequestURL.addBoxOfficeQueryItems(targetDate: defaultDate)
-        networkManager.fetchDetails(from: boxOfficeRequestURL.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
+        networkManager.fetch(from: boxOfficeRequestURL.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
             switch result {
             case .success(let boxOfficeResponse):
                 let myDailyBoxOfficeList = self.convertToMyDailyBoxOfficeList(from: boxOfficeResponse, targetDate: defaultDate)

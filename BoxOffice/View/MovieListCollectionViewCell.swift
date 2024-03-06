@@ -79,7 +79,7 @@ private extension MovieListCollectionViewCell {
 }
 
 extension MovieListCollectionViewCell {
-    func configure(with result: MyDailyBoxOfficeList) {
+    func configure(with result: CustomDailyBoxOffice) {
         oldAndNewStackView.configure(rank: result.rank,
                                      rankOldAndNew: result.rankOldAndNew.rawValue,
                                      rankChanged: result.rankChange)

@@ -13,6 +13,14 @@ extension Date {
         return Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
     }
     
+    static var today: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return
+    }
+    
+    
+    
     static var todayStringFormatter: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
@@ -24,4 +32,5 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: date)
     }
+    
 }

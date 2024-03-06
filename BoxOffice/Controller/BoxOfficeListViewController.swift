@@ -2,8 +2,9 @@ import UIKit
 
 final class BoxOfficeListViewController: UIViewController {
     private var movieAPIFetcher: MovieAPIFetcher
-    private var dailyBoxOfficeList: [MyDailyBoxOfficeList] = []
+    private var dailyBoxOfficeList: [CustomDailyBoxOffice] = []
     private var movieListCollectionView: MovieListCollectionView?
+    
     
 
     override func viewDidLoad() {
@@ -13,8 +14,8 @@ final class BoxOfficeListViewController: UIViewController {
         configureNavigationBarTitle()
     }
 
-    init(movieAPIFetcher: MovieAPIFetcher) {
-        self.movieAPIFetcher = movieAPIFetcher
+    init(fetcher: MovieAPIFetcher) {
+        self.movieAPIFetcher = fetcher
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,7 +24,6 @@ final class BoxOfficeListViewController: UIViewController {
     }
 }
 
-// Extension for setting up the CollectionView
 extension BoxOfficeListViewController {
     
     func configureNavigationBarTitle() {

@@ -4,7 +4,7 @@ protocol BoxOfficeListDelegate: AnyObject {
     func refreshBoxOfficeData()
 }
 
-@available(iOS 14.0, *)
+
 final class MovieListCollectionView: UICollectionView {
     weak var movieListDelegate: BoxOfficeListDelegate?
     let loadingIndicator = UIActivityIndicatorView(style: .medium)

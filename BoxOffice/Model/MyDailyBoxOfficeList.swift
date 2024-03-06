@@ -1,6 +1,6 @@
 import UIKit
 
-struct MyDailyBoxOfficeList: Decodable {
+struct CustomDailyBoxOffice: Codable {
     let movieName: String
     let rank: String
     let todayAudience: Int
@@ -8,7 +8,6 @@ struct MyDailyBoxOfficeList: Decodable {
     let rankOldAndNew: RankOldAndNew
     let targetDate: String
     let rankChange: String
-    
     
     init(movieNm: String, rank: String, audiCnt: String, accAudi: String, rankOldAndNew: RankOldAndNew, targetDate: String, rankInten: String) {
         self.movieName = movieNm
