@@ -27,7 +27,7 @@ final class MovieListCollectionView: UICollectionView {
     private func setupCollectionView() {
         registerCells()
         configureLoadingIndicator()
-        self.refreshControl = pullToRefreshControl
+        self.refreshControl = pullToRefreshControlgg
     }
     
     private func registerCells() {
