@@ -1,11 +1,15 @@
 import Foundation
 
-struct EndPoint {
-    var path: String
-    var queryItems: [URLQueryItem] = []
+protocol EndPointProtocol {
+    var path: String { get }
+    var queryItems: [URLQueryItem] { get }
+    var url: URL { get }
+    
 }
 
-extension EndPoint {
+struct EndPoint: EndPointProtocol {
+    var path: String
+    var queryItems: [URLQueryItem] = []
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -35,6 +39,5 @@ extension EndPoint {
     mutating func addDetailMovieInfoQueryItems(movieCode: String) {
         queryItems.append(URLQueryItem(name: "key", value: "f5eef3421c602c6cb7ea224104795888"))
         queryItems.append(URLQueryItem(name: "movieCd", value: movieCode))
-
     }
 }

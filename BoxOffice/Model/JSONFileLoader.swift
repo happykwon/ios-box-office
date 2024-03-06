@@ -1,6 +1,6 @@
 import Foundation
 
-struct JSONLoader {
+struct JSONFileLoader {
     func loadJSONFromFile<T: Codable>(from bundle: Bundle, fileName: String, ofType fileType: String = "json") throws -> T {
         guard let path = bundle.path(forResource: fileName, ofType: fileType),
               let jsonString = try? String(contentsOfFile: path) else {

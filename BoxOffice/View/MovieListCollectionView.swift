@@ -46,7 +46,6 @@ final class MovieListCollectionView: UICollectionView {
     
     private func refreshBoxOfficeCollectionView() {
             self.movieListDelegate?.refreshBoxOfficeData()
-//            self.refreshControl?.endRefreshing()
     }
 }
 

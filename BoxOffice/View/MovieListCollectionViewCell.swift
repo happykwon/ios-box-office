@@ -33,7 +33,6 @@ final class MovieListCollectionViewCell: UICollectionViewCell {
         setupConstraints()
         setupSeparatorLine()
         setupaccessorySymbol()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -90,4 +89,5 @@ extension MovieListCollectionViewCell {
                                                totalAdience: result.totalAudience)
     }
 }
+
 

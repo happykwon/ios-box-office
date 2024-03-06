@@ -19,7 +19,7 @@ class OldAndNewStackView: UIStackView {
     private let newMovieLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
-        label.font = .boldSystemFont(ofSize: 10)
+        label.font = .boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         label.textColor = .red
         label.text = "신작"

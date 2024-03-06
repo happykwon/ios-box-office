@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let viewController = BoxOfficeListViewController(movieAPIFetcher: MovieAPIFetcher())
-        let navigationController = CustomNavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: viewController)
 
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController
