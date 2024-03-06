@@ -41,16 +41,7 @@ final class MovieListCollectionView: UICollectionView {
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-
         self.isScrollEnabled = true
-//        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(loadingIndicator)
-//        NSLayoutConstraint.activate([
-//            loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
-//        ])
-//        self.isScrollEnabled = false
-//        loadingIndicator.startAnimating()
     }
     
     private func refreshBoxOfficeCollectionView() {

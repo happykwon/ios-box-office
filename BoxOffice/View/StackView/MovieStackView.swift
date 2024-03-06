@@ -12,7 +12,7 @@ class MovieStackView: UIStackView {
     private let audienceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = .systemGray
         return label
     }()
@@ -28,7 +28,7 @@ class MovieStackView: UIStackView {
 }
 
 extension MovieStackView {
-    func setupStackView() {
+   private func setupStackView() {
         self.axis = .vertical
         self.spacing = 0
         self.distribution = .fillEqually
@@ -47,8 +47,8 @@ extension MovieStackView {
         let todayAudience = formatNumber(todayAdience)
         let totalAudience = formatNumber(totalAdience)
         self.movieNameLabel.text = movieName
-        audienceLabel.text = "오늘\(todayAudience) / 총\(totalAudience)"
-        self.addArrangedSubview(audienceLabel)
+        self.audienceLabel.text = "오늘\(todayAudience) / 총\(totalAudience)"
         self.addArrangedSubview(movieNameLabel)
+        self.addArrangedSubview(audienceLabel)
     }
 }

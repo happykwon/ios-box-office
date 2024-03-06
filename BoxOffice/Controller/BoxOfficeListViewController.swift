@@ -79,7 +79,6 @@ extension BoxOfficeListViewController: UICollectionViewDataSource, UICollectionV
 }
 
 extension BoxOfficeListViewController: BoxOfficeListDelegate {
-    
     func refreshBoxOfficeData() {
         self.movieListCollectionView?.loadingIndicator.startAnimating()
         movieAPIFetcher.fetchBoxOffice { [weak self] result in

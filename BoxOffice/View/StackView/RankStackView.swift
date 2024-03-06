@@ -73,14 +73,17 @@ extension RankStackView {
 }
 
 extension RankStackView {
-    func configurePresentRank(rank: String) {
-        guard let presentRank = Int(rank) else { return }
-        if presentRank > 0 {
-            configureRankUpStackView(rank: rank)
-        } else if presentRank < 0 {
-            configureRankDownStackView(rank: String(abs(presentRank)))
-        } else {
+    func configurePresentRank(rankChange: String) {
+        arrangedSubviews.forEach { $0.removeFromSuperview() }
+        if rankChange == "0" {
             configureRankNotChangeStackView()
+        } else {
+            let changeValue = Int(rankChange) ?? 0
+            if changeValue > 0 {
+                configureRankUpStackView(rank: rankChange)
+            } else if changeValue < 0 {
+                configureRankDownStackView(rank: rankChange)
+            }
         }
     }
 }

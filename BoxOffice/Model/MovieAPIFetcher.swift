@@ -38,13 +38,13 @@ struct MovieAPIFetcher {
     func fetchBoxOffice(completion: @escaping (Result<[MyDailyBoxOfficeList], Error>) -> Void) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        let targetDate = dateFormatter.string(from: Date.yesterday)
+        let defaultDate = dateFormatter.string(from: Date.yesterday)
         var boxOfficeRequestURL = EndPoint.boxOfficePath
-        boxOfficeRequestURL.addBoxOfficeQueryItems(targetDate: targetDate)
+        boxOfficeRequestURL.addBoxOfficeQueryItems(targetDate: defaultDate)
         networkManager.fetchDetails(from: boxOfficeRequestURL.url.absoluteString) { (result: Result<BoxOfficeResponse, Error>) in
             switch result {
             case .success(let boxOfficeResponse):
-                let myDailyBoxOfficeList = self.convertToMyDailyBoxOfficeList(from: boxOfficeResponse, targetDate: targetDate)
+                let myDailyBoxOfficeList = self.convertToMyDailyBoxOfficeList(from: boxOfficeResponse, targetDate: defaultDate)
                 completion(.success(myDailyBoxOfficeList))
             case .failure(let error):
                 completion(.failure(error))

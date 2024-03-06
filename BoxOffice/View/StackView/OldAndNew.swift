@@ -50,17 +50,23 @@ private extension OldAndNewStackView {
         self.addArrangedSubview(rankLabel)
         self.addArrangedSubview(newMovieLabel)
     }
-    
     func configureRankChangedMovieLabel(rank: String) {
-        rankStackView.configurePresentRank(rank: rank)
+        rankStackView.configurePresentRank(rankChange: rank)
         self.addArrangedSubview(rankLabel)
         self.addArrangedSubview(rankStackView)
     }
 }
 
 extension OldAndNewStackView {
-    func configure(rank: String, rankState: String, rankChanged: String) {
+    func configure(rank: String, rankOldAndNew: String, rankChanged: String) {
         rankLabel.text = rank
-        rankState == "NEW" ? configureNewMovieLabel() : configureRankChangedMovieLabel(rank: rank)
+        arrangedSubviews.forEach { $0.removeFromSuperview() }
+        addArrangedSubview(rankLabel)
+        if rankOldAndNew == "NEW" {
+            addArrangedSubview(newMovieLabel)
+        } else {
+            rankStackView.configurePresentRank(rankChange: rankChanged)
+            addArrangedSubview(rankStackView)
+        }
     }
 }
