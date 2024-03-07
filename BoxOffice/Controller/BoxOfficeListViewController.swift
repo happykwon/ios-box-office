@@ -23,8 +23,7 @@ final class BoxOfficeListViewController: UIViewController {
 }
 
 extension BoxOfficeListViewController {
-    
-    func configureNavigationBarTitle() {
+   private func configureNavigationBarTitle() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         navigationItem.title = Date.todayStringFormatter
@@ -32,7 +31,6 @@ extension BoxOfficeListViewController {
         navigationController?.navigationBar.titleTextAttributes = attributes
     }
 
-    
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: 100)
@@ -77,7 +75,7 @@ extension BoxOfficeListViewController: UICollectionViewDataSource, UICollectionV
 }
 
 extension BoxOfficeListViewController: BoxOfficeListDelegate {
-    func refreshBoxOfficeData() {
+     func refreshBoxOfficeData() {
         self.movieListCollectionView?.loadingIndicator.startAnimating()
         movieAPIFetcher.fetchBoxOffice { [weak self] result in
             DispatchQueue.main.async {

@@ -1,10 +1,3 @@
-//
-//  OldAndNewStackView.swift
-//  BoxOffice
-//
-//  Created by 권태호 on 05/03/2024.
-//
-
 import UIKit
 
 class OldAndNewStackView: UIStackView {
@@ -46,11 +39,11 @@ private extension OldAndNewStackView {
         self.alignment = .center
     }
     
-    func configureNewMovieLabel() {
+    private func configureNewMovieLabel() {
         self.addArrangedSubview(rankLabel)
         self.addArrangedSubview(newMovieLabel)
     }
-    func configureRankChangedMovieLabel(rank: String) {
+    private func configureRankChangedMovieLabel(rank: String) {
         rankStackView.configurePresentRank(rankChange: rank)
         self.addArrangedSubview(rankLabel)
         self.addArrangedSubview(rankStackView)

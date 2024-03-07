@@ -33,12 +33,12 @@ class MovieListCollectionViewListCell: UICollectionViewListCell {
     }
 }
 
-private extension MovieListCollectionViewListCell {
-    func configureViews() {
+extension MovieListCollectionViewListCell {
+   private func configureViews() {
         contentView.addSubview(mainStackOfMovieListCollectionViewCell)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         oldAndNewStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2).isActive = true
         mainStackOfMovieListCollectionViewCell.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

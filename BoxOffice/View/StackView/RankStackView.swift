@@ -42,14 +42,14 @@ class RankStackView: UIStackView {
 
 extension RankStackView {
     
-    func setupRankStackView() {
+    private func setupRankStackView() {
         self.axis = .horizontal
         self.spacing = 0
         self.distribution = .fillEqually
         self.alignment = .center
     }
     
-    func configureRankUpStackView(rank: String) {
+    private func configureRankUpStackView(rank: String) {
         self.addArrangedSubview(rankUpImage)
         self.addArrangedSubview(rankLabel)
         self.rankLabel.text = rank
@@ -58,7 +58,7 @@ extension RankStackView {
 
     }
     
-    func configureRankDownStackView(rank: String) {
+    private func configureRankDownStackView(rank: String) {
         addArrangedSubview(rankDownImage)
         addArrangedSubview(rankLabel)
         self.rankLabel.text = rank
@@ -66,7 +66,7 @@ extension RankStackView {
         rankDownImage.heightAnchor.constraint(equalTo: rankLabel.heightAnchor).isActive = true
     }
     
-    func configureRankNotChangeStackView() {
+    private func configureRankNotChangeStackView() {
         self.rankLabel.text = "-"
         self.addArrangedSubview(rankLabel)
     }
