@@ -24,8 +24,6 @@ final class BoxOfficeListViewController: UIViewController {
 
 extension BoxOfficeListViewController {
    private func configureNavigationBarTitle() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
         navigationItem.title = Date.todayStringFormatter
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
         navigationController?.navigationBar.titleTextAttributes = attributes
