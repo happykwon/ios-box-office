@@ -1,7 +1,8 @@
+
 import UIKit
 
-final class MovieListCollectionViewCell: UICollectionViewCell {
-    static let reuseIdentifier = String(describing: MovieListCollectionViewCell.self)
+class MovieListCollectionViewListCell: UICollectionViewListCell {
+    static let reuseIdentifier = String(describing: MovieListCollectionViewListCell.self)
     private let oldAndNewStackView = OldAndNewStackView()
     private let movieStackView = MovieStackView()
     private lazy var mainStackOfMovieListCollectionViewCell: UIStackView = {
@@ -11,13 +12,6 @@ final class MovieListCollectionViewCell: UICollectionViewCell {
         stack.spacing = 0
         stack.alignment = .center
         return stack
-    }()
-    
-    private let accessorySymbol: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "chevron.compact.right")
-        imageView.tintColor = .lightGray
-        return imageView
     }()
     
     private let separatorLine: UIView = {
@@ -32,7 +26,6 @@ final class MovieListCollectionViewCell: UICollectionViewCell {
         configureViews()
         setupConstraints()
         setupSeparatorLine()
-        setupaccessorySymbol()
     }
     
     required init?(coder: NSCoder) {
@@ -40,20 +33,9 @@ final class MovieListCollectionViewCell: UICollectionViewCell {
     }
 }
 
-private extension MovieListCollectionViewCell {
+private extension MovieListCollectionViewListCell {
     func configureViews() {
         contentView.addSubview(mainStackOfMovieListCollectionViewCell)
-    }
-    
-    func setupaccessorySymbol() {
-        contentView.addSubview(accessorySymbol)
-        accessorySymbol.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            accessorySymbol.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            accessorySymbol.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            accessorySymbol.widthAnchor.constraint(equalToConstant: 20),
-            accessorySymbol.heightAnchor.constraint(equalToConstant: 20)
-        ])
     }
     
     func setupConstraints() {
@@ -68,17 +50,17 @@ private extension MovieListCollectionViewCell {
     }
     
     private func setupSeparatorLine() {
-           addSubview(separatorLine)
-           NSLayoutConstraint.activate([
-               separatorLine.leadingAnchor.constraint(equalTo: leadingAnchor),
-               separatorLine.trailingAnchor.constraint(equalTo: trailingAnchor),
-               separatorLine.bottomAnchor.constraint(equalTo: bottomAnchor),
-               separatorLine.heightAnchor.constraint(equalToConstant: 1)
-           ])
-       }
+        addSubview(separatorLine)
+        NSLayoutConstraint.activate([
+            separatorLine.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separatorLine.trailingAnchor.constraint(equalTo: trailingAnchor),
+            separatorLine.bottomAnchor.constraint(equalTo: bottomAnchor),
+            separatorLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
 }
 
-extension MovieListCollectionViewCell {
+extension MovieListCollectionViewListCell {
     func configure(with result: CustomDailyBoxOffice) {
         oldAndNewStackView.configure(rank: result.rank,
                                      rankOldAndNew: result.rankOldAndNew.rawValue,
@@ -89,5 +71,3 @@ extension MovieListCollectionViewCell {
                                                totalAdience: result.totalAudience)
     }
 }
-
-

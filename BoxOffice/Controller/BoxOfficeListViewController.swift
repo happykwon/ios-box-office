@@ -3,10 +3,8 @@ import UIKit
 final class BoxOfficeListViewController: UIViewController {
     private var movieAPIFetcher: MovieAPIFetcher
     private var dailyBoxOfficeList: [CustomDailyBoxOffice] = []
-    private var movieListCollectionView: MovieListCollectionView?
+    private var movieListCollectionView: BoxOfficeListView?
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -29,7 +27,7 @@ extension BoxOfficeListViewController {
     func configureNavigationBarTitle() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        navigationItem.title = formatter.string(from: Date())
+        navigationItem.title = Date.todayStringFormatter
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
         navigationController?.navigationBar.titleTextAttributes = attributes
     }
@@ -38,7 +36,7 @@ extension BoxOfficeListViewController {
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: 100)
-        movieListCollectionView = MovieListCollectionView(frame: .zero, collectionViewLayout: layout)
+        movieListCollectionView = BoxOfficeListView(frame: .zero, collectionViewLayout: layout)
         guard let movieListCollectionView = movieListCollectionView else { return }
         movieListCollectionView.movieListDelegate = self
         movieListCollectionView.delegate = self
@@ -67,13 +65,13 @@ extension BoxOfficeListViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dailyBoxOfficeList.count
     }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListCollectionViewCell.reuseIdentifier, for: indexPath) as? MovieListCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListCollectionViewListCell.reuseIdentifier, for: indexPath) as? MovieListCollectionViewListCell else {
             fatalError("MovieListCollectionViewCell dequeueReusableCell Error ")
         }
         let boxOffice = dailyBoxOfficeList[indexPath.row]
         cell.configure(with: boxOffice)
+        cell.accessories = [.disclosureIndicator()]
         return cell
     }
 }

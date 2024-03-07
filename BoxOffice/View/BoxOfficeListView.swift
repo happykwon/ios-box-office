@@ -5,7 +5,7 @@ protocol BoxOfficeListDelegate: AnyObject {
 }
 
 
-final class MovieListCollectionView: UICollectionView {
+final class BoxOfficeListView: UICollectionView {
     weak var movieListDelegate: BoxOfficeListDelegate?
     let loadingIndicator = UIActivityIndicatorView(style: .medium)
     
@@ -31,7 +31,7 @@ final class MovieListCollectionView: UICollectionView {
     }
     
     private func registerCells() {
-        self.register(MovieListCollectionViewCell.self, forCellWithReuseIdentifier: MovieListCollectionViewCell.reuseIdentifier)
+        self.register(MovieListCollectionViewListCell.self, forCellWithReuseIdentifier: MovieListCollectionViewListCell.reuseIdentifier)
     }
     
     private func configureLoadingIndicator() {
